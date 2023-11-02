@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tabuada p{
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button 
+      onclick="emiteAlerta()"
+    >Clique aqui</button>
+    <h1 id="titulo" class="destaque"
+        onmouseleave="emiteError()"
+        onmouseover="emiteWarn()"
+        onclick="alteraH1()"
+    >Emite error</h1>
+
+    <p> 
+        <input type="number" onkeyup="calculaTabuada(this.value)">
+    </p>
+
+    <div id="tabuada"></div>
+
+    <script type="text/javascript">
+        const nome = "Gabriel";
+        const sobrenome = "Silva";
+        console.log(nome + " " + sobrenome);
+
+        function emiteAlerta (){
+            alert('Você clicou em um botão');
+            /* console.log("a função emitAlerta foi acionada");
+            console.error("mensagens de erro");
+            console.warn("Um erro que não é grave");
+            console.info("mensagem de informação"); */
+            // console.table([555,2222,555]);
+        }
+
+
+
+        const emiteError = function (){
+            console.error("Isso é uma função em uma variável");
+        }
+
+        const emiteWarn = function(){
+            console.warn("O mouse está sobre...");
+        }
+
+        // pegando elementos via js
+
+        const alteraH1= function(){
+            // const h1 = document.querySelector('h1'); //elemento
+            // const h1 = document.querySelector('#titulo'); // id
+            const h1 = document.querySelector('.destaque'); // class
+            // h1.innerText = "Valor <br>alterado";
+            h1.innerHTML = "Valor <br>alterado";
+        }  
+        
+        const calculaTabuada = function(valor){
+            const tabuada = document.querySelector("#tabuada");
+            tabuada.innerText = "";
+            for(i =0; i<=10; i++){
+              tabuada.innerHTML += `<p>${i} x ${valor} = ${i*valor} </p>`;
+            }
+        }
+    </script>
+</body>
+</html>
